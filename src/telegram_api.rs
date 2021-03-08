@@ -11,14 +11,13 @@ pub async fn polling(token: String) -> Result<(), Error> {
         let update = update?;
         if let UpdateKind::Message(message) = update.kind {
             if let MessageKind::Text { ref data, .. } = message.kind {
-                // Print received text message to stdout.
                 println!("<{}>: {}", &message.from.first_name, data);
 
                 // Answer message with "Hi".
-                api.send(message.text_reply(format!(
-                    "Hi, {}! You just wrote '{}'",
-                    &message.from.first_name, data
-                )))
+                let string_message = format!(
+                    "Hi, {}! Sorry I can't do nothing with your message",
+                    &message.from.first_name);
+                api.send(message.text_reply(string_message))
                     .await?;
             }
         }

@@ -7,6 +7,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tokio = { version = "0.2", features = ["macros", "time", "fs"] }
+tokio = { version = "0.2", features = ["macros", "time", "fs", "stream"] }
 futures = "0.3"
 telegram-bot = "0.8.0"
+chrono = { version = "0.4", features = ["std"]}
