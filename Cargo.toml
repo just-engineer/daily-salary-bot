@@ -7,7 +7,9 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tokio = { version = "0.2", features = ["macros", "time", "fs", "stream"] }
-futures = "0.3"
-telegram-bot = "0.8.0"
-chrono = { version = "0.4", features = ["std"]}
+tokio = { version = "1", features = ["full"] }
+chrono = { version = "0.4", features = ["std"] }
+tokio-postgres = "0.7.1"
+postgres-types = "0.2.1"
+refinery = {version = "0.5.0", features = ["tokio-postgres"]}
+mockall = "0.9.1"
