@@ -1,12 +1,11 @@
 use tokio_postgres::{Client, NoTls};
+use chrono::{Utc, DateTime};
+use async_trait::async_trait;
+use crate::scheduler::Storage;
 
 mod embedded {
     use refinery::embed_migrations;
     embed_migrations!("./migrations");
-}
-
-trait Storage {
-    async fn find_jobs();
 }
 
 struct PostgresStorage {
@@ -32,9 +31,13 @@ impl PostgresStorage {
     }
 
 }
-
+#[async_trait]
 impl Storage for PostgresStorage {
-    async fn find_jobs() {
+    async fn find_jobs(&self) {
+        todo!()
+    }
+
+    async fn insert_new(&self, job_name: String, time: DateTime<Utc>) {
         todo!()
     }
 }
