@@ -33,7 +33,7 @@ impl PostgresStorage {
 }
 #[async_trait]
 impl Storage for PostgresStorage {
-    async fn find_jobs(&self) {
+    async fn find_jobs(&self, from: DateTime<Utc>, to: DateTime<Utc>) {
         todo!()
     }
 
